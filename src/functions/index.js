@@ -7,11 +7,11 @@ const addFavorite = (userId, cityId) => {
   const object = { user_id: userId, city_id: cityId };
   axiosWithAuth()
     .post(
-      `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`,
+      `https://whispering-chamber-14412.herokuapp.com/api/users/${userId}/favorites`,
       object
     )
     .then((res) => {
-      console.log(res, 'favorite completed!');
+      console.log(res, "favorite completed!");
     })
     .catch((err) => {
       console.log(err);
@@ -20,7 +20,7 @@ const addFavorite = (userId, cityId) => {
 
 const postProfileRequest = async (userData, userId) => {
   let response = await axiosWithAuth().post(
-    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
+    `https://whispering-chamber-14412.herokuapp.com/api/profile/${userId}`,
     userData
   );
   let responseProfileData = await response.data;
@@ -30,7 +30,7 @@ const postProfileRequest = async (userData, userId) => {
 
 const deleteProfile = async (userId) => {
   let response = await axiosWithAuth().delete(
-    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
+    `https://whispering-chamber-14412.herokuapp.com/api/profile/${userId}`
   );
   let responseProfileData = await response.data;
 
@@ -39,7 +39,7 @@ const deleteProfile = async (userId) => {
 
 const editProfile = async (userId, userData) => {
   let response = await axiosWithAuth().put(
-    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
+    `https://whispering-chamber-14412.herokuapp.com/api/profile/${userId}`,
     userData
   );
   let responseProfileData = await response.data;
@@ -50,10 +50,10 @@ const editProfile = async (userId, userData) => {
 const removeFavorite = (userId, cityId) => {
   axiosWithAuth()
     .delete(
-      `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites/${cityId}`
+      `https://whispering-chamber-14412.herokuapp.com/api/users/${userId}/favorites/${cityId}`
     )
     .then((res) => {
-      console.log(res, 'unfavorite completed!');
+      console.log(res, "unfavorite completed!");
     });
 };
 
@@ -84,12 +84,12 @@ const createUserContext = async () => {
   };
 
   let user = await axiosWithAuth().get(
-    `https://production-juxta-city-be.herokuapp.com/api/users/${userId}`
+    `https://whispering-chamber-14412.herokuapp.com/api/users/${userId}`
   );
   let userData = await user.data;
   context = { ...context, ...userData };
   let favorites = await axiosWithAuth().get(
-    `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`
+    `https://whispering-chamber-14412.herokuapp.com/api/users/${userId}/favorites`
   );
   for (const favorite of favorites.data) {
     const result = await axiosWithAuth().get(
@@ -105,7 +105,7 @@ const createProfileContext = async () => {
   const userId = jwt_decode(token).userid;
 
   let response = await axiosWithAuth().get(
-    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/all`
+    `https://whispering-chamber-14412.herokuapp.com/api/profile/${userId}/all`
   );
   let responseProfileData = await response.data;
   
