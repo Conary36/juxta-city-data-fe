@@ -31,30 +31,30 @@ const ImageUpload = ({ info }) => {
 
     axiosWithAuth()
       .put(
-        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image`,
+        `https://whispering-chamber-14412.herokuapp.com/api/profile/${userId}/profile_image`,
         formData
       )
       .then((res) => {
         setUploadedFile(res.data);
-        console.log(res.data, 'res.data');
+        console.log(res.data, "res.data");
       })
       .then(() => window.location.reload())
-      .catch(err => {
-        console.log('error', err);
+      .catch((err) => {
+        console.log("error", err);
       });
   };
 
   const handleRemove = () => {
     axiosWithAuth()
       .put(
-        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image/${cloudinary_id}`
+        `https://whispering-chamber-14412.herokuapp.com/api/profile/${userId}/profile_image/${cloudinary_id}`
       )
       .then(() => {
         setUploadedFile(initialFormState);
       })
       .then(() => window.location.reload())
       .catch((err) => {
-        console.log('error', err);
+        console.log("error", err);
       });
   };
 

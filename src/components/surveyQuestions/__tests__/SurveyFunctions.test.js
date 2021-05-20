@@ -57,7 +57,7 @@ describe("getSurveyData", () => {
       },
     ];
     const url =
-      "https://production-juxta-city-be.herokuapp.com/api/questions/surveyobj";
+      "https://whispering-chamber-14412.herokuapp.com/api/questions/surveyobj";
     const response = { data: questions };
     axios.get.mockResolvedValue(response);
     await getSurveyData().then((data) => expect(data).toEqual(questions));

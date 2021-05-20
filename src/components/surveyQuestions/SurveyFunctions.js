@@ -3,7 +3,7 @@ import { axiosWithAuth } from "../../functions/axiosWithAuth";
 
 const getSurveyData = async () => {
   const response = await axios.get(
-    "https://production-juxta-city-be.herokuapp.com/api/questions/surveyobj"
+    "https://whispering-chamber-14412.herokuapp.com/api/questions/surveyobj"
   );
   return response.data;
 };
@@ -11,7 +11,7 @@ const getSurveyData = async () => {
 const putSurveyAnswers = async (answers, userId) => {
   axiosWithAuth()
     .put(
-      `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/answers`,
+      `https://whispering-chamber-14412.herokuapp.com/api/profile/${userId}/answers`,
       answers
     )
     .then((res) => {

@@ -17,13 +17,18 @@ export default function SignUp(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://production-juxta-city-be.herokuapp.com/api/auth/signup", form )
+    axios
+      .post(
+        "https://whispering-chamber-14412.herokuapp.com/api/auth/signup",
+        form
+      )
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/dashboard");
       })
       .catch((err) => {
-        document.getElementById("error-message").style.display = "block"});
+        document.getElementById("error-message").style.display = "block";
+      });
   };
 
   return (

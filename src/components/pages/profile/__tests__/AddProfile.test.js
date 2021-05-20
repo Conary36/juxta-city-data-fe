@@ -47,7 +47,7 @@ describe("bang", () => {
       1
     );
     expect(mockAxios.create.mock.results[0].value.post).toHaveBeenCalledWith(
-      "https://production-juxta-city-be.herokuapp.com/api/profile/1",
+      "https://whispering-chamber-14412.herokuapp.com/api/profile/1",
       {
         first_name: "Conary",
         last_name: "Beckford",
